@@ -14,6 +14,7 @@ const saveEmailMessage = function (event) {
         message: message.value
      }
     
+    
     localStorage.setItem(FFS_Key, JSON.stringify(obj));
 };
 
@@ -32,7 +33,12 @@ const updateValueKey = function () {
 
     form.addEventListener("submit", (evt) => {
         evt.preventDefault();
-        console.log({eemail: email.value, message: message.value});
+        console.log({ eemail: email.value, message: message.value });
+        if (!email.value) {
+        return alert `Please fill in all fields.`
+    } if (!message.value) {
+        return alert `Please fill in all fields.`
+    };
   localStorage.removeItem(FFS_Key);
     form.reset();
     // console.log({email: email.value, message: message.value});
